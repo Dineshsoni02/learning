@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Card from "./Card";
 
@@ -21,6 +21,28 @@ function IsNewMessage({ isMessage }) {
   return <div>{isMessage && <p>New message received</p>} </div>;
 }
 
+function LoginLogout() {
+  const [isLogged, setIsLogged] = useState(true);
+
+  function handleLoginLogout() {
+    setIsLogged(!isLogged);
+  }
+
+  return (
+    <div>
+      <button onClick={handleLoginLogout}>
+        {isLogged ? "Logout" : "Login"}
+      </button>
+
+      <p>
+        {isLogged
+          ? "Hello welcome, you are logged in!"
+          : "You are logged out! Please login!!"}
+      </p>
+    </div>
+  );
+}
+
 const Learning = () => {
   return (
     <div className="hero">
@@ -30,6 +52,7 @@ const Learning = () => {
       <ButtonClicked />
       <Greeting />
       <IsNewMessage isMessage={true} />
+      <LoginLogout />
     </div>
   );
 };
