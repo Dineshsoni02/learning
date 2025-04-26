@@ -43,6 +43,11 @@ function LoginLogout() {
   );
 }
 
+function SubApp({isSub}) {
+
+  return <p>{isSub ? "Subscribed" : "Not Subscribed"}</p>;
+}
+
 const Learning = () => {
   return (
     <div className="hero">
@@ -53,6 +58,7 @@ const Learning = () => {
       <Greeting />
       <IsNewMessage isMessage={true} />
       <LoginLogout />
+      <SubApp isSub={true} />
     </div>
   );
 };
