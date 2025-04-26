@@ -3,3 +3,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: aliceblue;
+  padding-top: 1%;
+  gap: 10px;
+}
