@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Card from "./Card";
+import Form2804 from "./Form2804";
 
 function ButtonClicked() {
   function handleClick(name) {
@@ -43,8 +44,7 @@ function LoginLogout() {
   );
 }
 
-function SubApp({isSub}) {
-
+function SubApp({ isSub }) {
   return <p>{isSub ? "Subscribed" : "Not Subscribed"}</p>;
 }
 
@@ -59,6 +59,7 @@ const Learning = () => {
       <IsNewMessage isMessage={true} />
       <LoginLogout />
       <SubApp isSub={true} />
+      <Form2804 />
     </div>
   );
 };
