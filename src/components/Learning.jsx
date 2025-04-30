@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "./Card";
 import Form2804 from "./Form2804";
 import D2930 from "./D2930";
+import D3004 from "./D3004";
 
 
 function ButtonClicked() {
@@ -65,7 +66,8 @@ const Learning = () => {
       <LoginLogout />
       <SubApp isSub={true} />
       <Form2804 />
-      <D2930 /> 
+      <D2930 />
+      <D3004 />
     </div>
   );
 };
