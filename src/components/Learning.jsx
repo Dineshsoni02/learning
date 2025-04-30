@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import Card from "./Card";
 import Form2804 from "./Form2804";
+import D2930 from "./D2930";
+
 
 function ButtonClicked() {
   function handleClick(name) {
@@ -48,6 +50,9 @@ function SubApp({ isSub }) {
   return <p>{isSub ? "Subscribed" : "Not Subscribed"}</p>;
 }
 
+
+
+
 const Learning = () => {
   return (
     <div className="hero">
@@ -60,6 +65,7 @@ const Learning = () => {
       <LoginLogout />
       <SubApp isSub={true} />
       <Form2804 />
+      <D2930 /> 
     </div>
   );
 };
