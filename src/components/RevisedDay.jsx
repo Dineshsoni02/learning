@@ -15,6 +15,7 @@ function Counter() {
 function UserCard() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const getUsers = async () => {
@@ -22,7 +23,6 @@ function UserCard() {
         const res = await fetch("https://jsonplaceholder.typicode.com/users");
         const data = await res.json();
         setUsers(data);
-        console.log(data);
       } catch (error) {
         console.log("error:", error);
       } finally {
@@ -32,13 +32,28 @@ function UserCard() {
     getUsers();
   }, []);
 
+  const lowerCaseMaker = (str) => {
+    return str.toLowerCase();
+  };
+
+  const filteredUsers = users.filter((user) =>
+    lowerCaseMaker(user.name).includes(lowerCaseMaker(search))
+  );
+
   return (
     <div>
+      <input
+        type="text"
+        placeholder="Search users"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
       {loading ? (
         <p>Users loading....</p>
       ) : (
         <ul>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <li key={user.id}>
               <span>
                 Name : {user.name} <br />
@@ -58,7 +73,6 @@ function UserCard() {
 }
 
 const RevisedDay = () => {
-  const [count, setCount] = useState(0);
   return (
     <div>
       <Counter />
