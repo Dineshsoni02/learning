@@ -4,7 +4,7 @@ import Card from "./Card";
 import Form2804 from "./Form2804";
 import D2930 from "./D2930";
 import D3004 from "./D3004";
-
+import RevisedDay from "./RevisedDay";
 
 function ButtonClicked() {
   function handleClick(name) {
@@ -51,13 +51,10 @@ function SubApp({ isSub }) {
   return <p>{isSub ? "Subscribed" : "Not Subscribed"}</p>;
 }
 
-
-
-
 const Learning = () => {
   return (
     <div className="hero">
-      <Card>
+      {/* <Card>
         <p>Inside of the children</p>
       </Card>
       <ButtonClicked />
@@ -67,7 +64,8 @@ const Learning = () => {
       <SubApp isSub={true} />
       <Form2804 />
       <D2930 />
-      <D3004 />
+      <D3004 /> */}
+      <RevisedDay />
     </div>
   );
 };
