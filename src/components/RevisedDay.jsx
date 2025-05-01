@@ -51,6 +51,8 @@ function UserCard() {
 
       {loading ? (
         <p>Users loading....</p>
+      ) : filteredUsers.length === 0 ? (
+        <p>No users</p>
       ) : (
         <ul>
           {filteredUsers.map((user) => (
