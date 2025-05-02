@@ -5,6 +5,7 @@ import Form2804 from "./Form2804";
 import D2930 from "./D2930";
 import D3004 from "./D3004";
 import RevisedDay from "./RevisedDay";
+import User from "./date02/User";
 
 function ButtonClicked() {
   function handleClick(name) {
@@ -65,7 +66,8 @@ const Learning = () => {
       <Form2804 />
       <D2930 />
       <D3004 /> */}
-      <RevisedDay />
+      {/* <RevisedDay /> */}
+      <User />
     </div>
   );
 };

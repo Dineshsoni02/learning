@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import Learning from "./components/Learning";
 import HomePage from "./components/HomePage";
+import UserDetail from "./components/date02/UserDetail";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/learning" element={<Learning />} />
+          <Route path="/user/:id" element={<UserDetail />} />
+
           <Route path="*" element={<p>No page found 404</p>} />
         </Routes>
       </div>
