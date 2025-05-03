@@ -8,6 +8,7 @@ import RevisedDay from "./RevisedDay";
 import User from "./date02/User";
 import Blogs from "./date02/Blogs";
 import Date03 from "./date03";
+import DataCalling from "./DataCalling";
 
 function ButtonClicked() {
   function handleClick(name) {
@@ -72,6 +73,7 @@ const Learning = () => {
       <User />
       {/* <Blogs /> */}
       <Date03 />
+      <DataCalling />
     </div>
   );
 };
