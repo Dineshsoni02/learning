@@ -73,7 +73,7 @@ const Learning = () => {
       {/* <Blogs /> */}
       <Date03 />
       <DataCalling />
-    <Form2804 />
+    {/* <Form2804 /> */}
     </div>
   );
 };

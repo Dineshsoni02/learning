@@ -1,4 +1,88 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+
+
+
+
+
+const WithoutRef = () => {
+  const [tickCount, setTickCount] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    let interval = setInterval(() => {
+      count++;
+      setTickCount(count);
+      console.log("tick (no ref)", count);
+      if (count === 5) {
+        clearInterval(interval);
+        console.log("stopped");
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+      console.log("cleanup (no ref)");
+    };
+  }, []);
+
+  // Simulate re-render by updating unrelated state
+  const [dummy, setDummy] = useState(0);
+
+  return (
+    <div>
+      <h2>Without useRef</h2>
+      <p>Tick Count: {tickCount}</p>
+      <button onClick={() => setDummy(dummy + 1)}>Re-render</button>
+    </div>
+  );
+};
+
+
+
+
+
+
+const WithRef = () => {
+  const [tickCount, setTickCount] = useState(0);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    let count = 0;
+    intervalRef.current = setInterval(() => {
+      count++;
+      setTickCount(count);
+      console.log("tick (with ref)", count);
+      if (count === 5) {
+        clearInterval(intervalRef.current);
+        console.log("stopped");
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalRef.current);
+      console.log("cleanup (with ref)");
+    };
+  }, []);
+
+  // Simulate re-render
+  const [dummy, setDummy] = useState(0);
+
+  return (
+    <div>
+      <h2>With useRef</h2>
+      <p>Tick Count: {tickCount}</p>
+      <button onClick={() => setDummy(dummy + 1)}>Re-render</button>
+    </div>
+  );
+};
+
+
+
+
+
+
+
+
 
 const Date03 = () => {
   const [tickCount, setTickCount] = useState(0);
@@ -6,46 +90,37 @@ const Date03 = () => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+  const intRef = useRef(null);
+  const renderCount = useRef(0);
 
-  // Tick every second up to 5 times
+  useEffect(() => {
+    renderCount.current++;
+    console.log("Rendered:", renderCount.current, "times");
+  });
+
   useEffect(() => {
     let count = 0;
-
-    const interval = setInterval(() => {
+    // const  interval = setInterval(() => {
+    intRef.current = setInterval(() => {
       count++;
       setTickCount(count);
-      console.log("tick...", count);
-
-      if (count === 5) {
-        clearInterval(interval);
-        console.log("Stopped after 5 ticks");
-      }
+      if (count === 5) clearInterval(intRef.current);
+      // if (count === 5) clearInterval(interval);
     }, 1000);
 
-    console.log("Date03 mounted");
-
-    return () => {
-      clearInterval(interval);
-      console.log("cleanup");
-    };
+    return () => clearInterval(intRef.current);
+    // return () => clearInterval(interval);
   }, []);
 
-  // Handle window resize
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
-      console.log("window resized");
     };
-
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      console.log("cleanup");
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -55,6 +130,9 @@ const Date03 = () => {
       <p>
         Window Size: {windowSize.width}px × {windowSize.height}px
       </p>
+      <p>Render Count: {renderCount.current}</p>
+      <WithoutRef />
+      <WithRef />
     </div>
   );
 };
