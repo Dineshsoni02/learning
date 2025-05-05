@@ -9,15 +9,15 @@ const Date05UseRef = () => {
     inputRef.current.focus();
   };
 
-  //counter
-//   useEffect(() => {
-//     intervalRef.current = setInterval(() => {
-//       setCount((prev) => prev + 1);
-//     }, 1000);
-//     return () => clearInterval(intervalRef.current);
-//   }, []);
-
+  //*  counter
   //   useEffect(() => {
+  //     intervalRef.current = setInterval(() => {
+  //       setCount((prev) => prev + 1);
+  //     }, 1000);
+  //     return () => clearInterval(intervalRef.current);
+  //   }, []);
+
+  //*   useEffect(() => {
   //     const handleClick = (e) => {
   //       console.log(e.target);
   //     };
@@ -28,12 +28,19 @@ const Date05UseRef = () => {
   //     };
   //   }, []);
 
-//PREV COunt
+  //* PREV COunt
 
   const prevCount = useRef();
-//   useEffect(() => {
-//     prevCount.current = count;
-//   }, [count]);
+  useEffect(() => {
+    prevCount.current = count;
+  }, [count]);
+
+  //?🔑 5. Avoiding Re-renders
+  const counter = useRef(0);
+
+  function handleClick() {
+    counter.current += 1;
+  }
 
   return (
     <div>
@@ -42,6 +49,9 @@ const Date05UseRef = () => {
       <button onClick={handleFocus}>Focus Input</button>
       <p>Count : {count} </p>
       <p>Previous: {prevCount.current}</p>
+
+      <p>Counter: {counter.current}</p>
+      <button onClick={handleClick}>Increase</button>
     </div>
   );
 };
