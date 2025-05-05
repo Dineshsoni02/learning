@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const Form2804 = () => {
   const [name, setName] = useState();
@@ -7,6 +7,7 @@ const Form2804 = () => {
     email: "",
     password: "",
   });
+  const inputRef = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,6 +29,10 @@ const Form2804 = () => {
       ...formData,
       [name]: value,
     });
+  }
+
+  function handleSubmitRef() {
+    alert(inputRef.current.value);
   }
 
   return (
@@ -64,6 +69,15 @@ const Form2804 = () => {
           placeholder="Enter password"
           onChange={handleChange}
         />
+        <button type="submit">Submit</button>
+      </form>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault(), handleSubmitRef();
+        }}
+      >
+        <input ref={inputRef} placeholder="Enter Name" />
         <button type="submit">Submit</button>
       </form>
     </div>

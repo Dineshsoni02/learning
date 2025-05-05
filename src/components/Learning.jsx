@@ -66,14 +66,14 @@ const Learning = () => {
       <IsNewMessage isMessage={true} />
       <LoginLogout />
       <SubApp isSub={true} />
-      <Form2804 />
-      <D2930 />
-      <D3004 /> */}
+    <D3004 /> */}
+      {/* <D2930 /> */}
       {/* <RevisedDay /> */}
       <User />
       {/* <Blogs /> */}
       <Date03 />
       <DataCalling />
+    <Form2804 />
     </div>
   );
 };
