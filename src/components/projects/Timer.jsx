@@ -3,16 +3,28 @@ import { useState } from "react";
 
 const Timer = () => {
   const [count, setCount] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   const timer = useRef(null);
 
   useEffect(() => {
-    timer.current = setInterval(() => {
-      setCount((prev) => prev + 1);
-    }, 1000);
+    if (isRunning) {
+      timer.current = setInterval(() => {
+        setCount((prev) => prev + 1);
+      }, 1000);
+    }
 
     return () => clearInterval(timer.current);
-  }, []);
+  }, [isRunning]);
+
+  const startStopTimer = () => {
+    setIsRunning((prev) => !prev);
+  };
+  const resetTimer = () => {
+    clearInterval(timer.current);
+    setIsRunning(false);
+    setCount(0);
+  };
 
   return (
     <div>
@@ -20,9 +32,11 @@ const Timer = () => {
 
       <p>Count: {count} </p>
 
-      <div className="flex gap-2 bg-blue ">
-        <button className="bg-blue" >Start</button>
-        <button> Reset</button>
+      <div className="flex gap-2 ">
+        <button style={{ marginRight: "10px" }} onClick={startStopTimer}>
+          {isRunning ? "Stop" : "Start"}
+        </button>
+        <button onClick={resetTimer}> Reset</button>
       </div>
     </div>
   );
