@@ -11,7 +11,7 @@ const Timer = () => {
     if (isRunning) {
       timer.current = setInterval(() => {
         setCount((prev) => prev + 1);
-      }, 1000);
+      }, 10);
     }
 
     return () => clearInterval(timer.current);
@@ -26,11 +26,20 @@ const Timer = () => {
     setCount(0);
   };
 
+  const formatTimer = (ms) => {
+    const hours = String(Math.floor(ms / 3600000)).padStart(2, "0");
+    const minutes = String(Math.floor((ms % 3600000) / 60000)).padStart(2, "0");
+    const seconds = String(Math.floor((ms % 60000) / 1000)).padStart(2, "0");
+    const milliseconds = String(Math.floor((ms % 1000) / 10)).padStart(2, "0");
+
+    return `${hours}:${minutes}:${seconds}:${milliseconds}`;
+  };
+
   return (
     <div>
       <h2>Timer ⏲️⏳</h2>
 
-      <p>Count: {count} </p>
+      <p>Timer : {formatTimer(count)} </p>
 
       <div className="flex gap-2 ">
         <button style={{ marginRight: "10px" }} onClick={startStopTimer}>
