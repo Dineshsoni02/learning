@@ -1,4 +1,5 @@
 import React from "react";
+import ReactForm from "./ReactForm";
 import Timer from "./Timer";
 
 const Projects = () => {
@@ -7,6 +8,7 @@ const Projects = () => {
       <h2>Projects</h2>
 
       <Timer />
+      <ReactForm />
     </div>
   );
 };
