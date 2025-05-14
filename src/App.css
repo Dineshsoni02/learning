@@ -30,3 +30,28 @@
   text-decoration: none;
   color: white;
 }
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.light {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.dark {
+  background-color: #222;
+  color: #f9f9f9;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
