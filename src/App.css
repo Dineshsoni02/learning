@@ -35,7 +35,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   transition: all 0.3s ease;
 }
@@ -52,6 +52,17 @@
 
 button {
   padding: 10px 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+.form input {
+  min-height: 40px;
+  padding: 10px;
 }
