@@ -14,11 +14,32 @@ const ContactFormApp = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    const newErrors = {
+      name: formData.name ? "" : "Name required",
+      email:
+        !formData.email || !formData.email.includes("@")
+          ? "Valid Email required"
+          : "",
+      message: formData.message ? "" : "Message required",
+    };
+
+    setError(newErrors);
+
+    const hasError = Object.values(newErrors).some((err) => err !== "");
+    if (hasError) return;
+
+    console.log("Submitted:", formData);
+
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData({
       ...formData,
       [name]: value,
@@ -33,29 +54,35 @@ const ContactFormApp = () => {
           type="text"
           placeholder="Name"
           name="name"
-          value={formData?.name}
+          value={formData.name}
           onChange={handleChange}
         />
+        {error.name && <p style={{ color: "red" }}>{error.name}</p>}
+
         <input
           type="email"
           name="email"
           placeholder="E-Mail"
-          value={formData?.email}
+          value={formData.email}
           onChange={handleChange}
         />
+        {error.email && <p style={{ color: "red" }}>{error.email}</p>}
+
         <input
           type="text"
           name="message"
-          placeholder="message"
-          value={formData?.message}
+          placeholder="Message"
+          value={formData.message}
           onChange={handleChange}
         />
+        {error.message && <p style={{ color: "red" }}>{error.message}</p>}
+
         <button type="submit">Submit</button>
       </form>
 
       {formData.name && <p>Name: {formData.name}</p>}
-      {formData.email && <p>Email : {formData.email}</p>}
-      {formData.message && <p>Message : {formData.message}</p>}
+      {formData.email && <p>Email: {formData.email}</p>}
+      {formData.message && <p>Message: {formData.message}</p>}
     </div>
   );
 };
