@@ -11,6 +11,7 @@ import Date03 from "./date03";
 import DataCalling from "./DataCalling";
 import Date05UseRef from "./Date05UseRef";
 import Date2105 from "./others/Date2105";
+import UseMemoFun from "./others/UseMemoFun";
 
 function ButtonClicked() {
   function handleClick(name) {
@@ -81,7 +82,8 @@ const Learning = () => {
       {/* <Date03 /> */}
 
       {/* <Date05UseRef /> */}
-      <Date2105 />
+      {/* <Date2105 /> */}
+      <UseMemoFun />
     </div>
   );
 };
