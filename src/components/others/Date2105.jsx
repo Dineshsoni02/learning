@@ -1,19 +1,19 @@
 import React, { useState, useCallback } from "react";
 
 const Button = React.memo(({ onClick }) => {
-  console.log("Button rendered");
-  return <button onClick={onClick}>Click me</button>;
+  console.log("Button Rendered");
+  return <button onClick={onClick}>Click Me </button>;
 });
 
 const Date2105 = () => {
   const [count, setCount] = useState(0);
 
-//   const handleClick = useCallback(() => {
-//     console.log("Clicked");
-//   }, []); // ← Only recreated when dependencies change
-  const handleClick = useCallback(()=>{
-    console.log("clicked");
-  },[]); // only re-render when count changes
+  const handleClick = useCallback(() => {
+    console.log("Clicked");
+  }, []);
+  // const handleClick = () => {
+  //   console.log("Clicked");
+  // }
 
   return (
     <div>
