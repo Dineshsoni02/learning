@@ -9,9 +9,9 @@ const Projects = () => {
     <div>
       <h2>Projects</h2>
       {/* <Timer />
-      <ReactForm />
       <Counter /> */}
-      <ContactFormApp />
+      {/* <ContactFormApp /> */}
+      <ReactForm />
     </div>
   );
 };
