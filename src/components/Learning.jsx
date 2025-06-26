@@ -58,7 +58,7 @@ function LoginLogout() {
 function SubApp({ isSub }) {
   return <p>{isSub ? "Subscribed" : "Not Subscribed"}</p>;
 }
-
+console.log(useState());
 const Learning = () => {
   return (
     <div className="hero">
