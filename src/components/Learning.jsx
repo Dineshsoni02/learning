@@ -13,6 +13,7 @@ import Date05UseRef from "./Date05UseRef";
 import Date2105 from "./others/Date2105";
 import UseMemoFun from "./others/UseMemoFun";
 import CustomHook from "./others/CustomHook";
+import ClsExample from "./others/ClsExample";
 
 function ButtonClicked() {
   function handleClick(name) {
@@ -77,15 +78,15 @@ const Learning = () => {
       {/* <Blogs /> */}
       {/* <Date03 /> */}
       {/* <DataCalling /> */}
-
       {/* -------- Date 05 --------  */}
       {/* <Form2804 /> */}
       {/* <Date03 /> */}
-
       {/* <Date05UseRef /> */}
       {/* <Date2105 /> */}
       {/* <UseMemoFun /> */}
       <CustomHook />
+
+      <ClsExample />
     </div>
   );
 };
