@@ -14,7 +14,7 @@ import Date2105 from "./others/Date2105";
 import UseMemoFun from "./others/UseMemoFun";
 import CustomHook from "./others/CustomHook";
 import ClsExample from "./others/ClsExample";
-
+import AnimatedButton from "./projects/AnimatedButton";
 function ButtonClicked() {
   function handleClick(name) {
     alert(`button clicked ${name} `);
@@ -84,9 +84,9 @@ const Learning = () => {
       {/* <Date05UseRef /> */}
       {/* <Date2105 /> */}
       {/* <UseMemoFun /> */}
-      <CustomHook />
-
-      <ClsExample />
+      {/* <CustomHook />
+      <ClsExample /> */}
+      <AnimatedButton />
     </div>
   );
 };

@@ -1,0 +1,49 @@
+.ButtonStyle {
+    text-decoration: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.8rem 2rem;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: color 0.4s ease, box-shadow 0.4s ease;
+  z-index: 0;
+}
+
+.ButtonStyle::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  background: #fff544;
+  height: 100%;
+  width: 0%;
+  z-index: -1;
+  transition: width 0.5s ease;
+}
+
+.ButtonStyle:hover::before {
+  width: 100%;
+}
+.ButtonStyle:hover {
+  color: black;
+  box-shadow:  0 1px 05px 0px rgba(0, 0, 255, 0.7);
+}
+
+.ButtonStyle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.ButtonStyle:hover svg {
+  transform: translateX(5px);
+}
